@@ -1,4 +1,4 @@
-# Laravel Horizon
+# Laravel Log Viewer
 
 ## 简介
 
