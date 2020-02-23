@@ -1,6 +1,37 @@
 <?php
 
 return [
+    'dropdown' => [
+        'document_label' => '使用文档',
+        'login_label'    => '用户登录',
+        'logout_label'   => '退出登录',
+        'register_label' => '用户注册',
+    ],
+    'dashboard' => [
+        'dashboard_title' => '仪表盘',
+    ],
+    'info' => [
+        'info_title'     => '日志信息',
+        'delete_label'   => '删除',
+        'download_label' => '下载',
+        'file_path'      => '文件路径',
+        'file_size'      => '文件大小',
+        'modified_at'    => '最近修改时间',
+        'log_level'      => '级别',
+        'log_env'        => '环境',
+        'log_datetime'   => '日期',
+        'log_content'    => '内容',
+    ],
+    'confirm' => [
+        'confirm_title'   => '温馨提示',
+        'ok_label'        => '确定',
+        'cancel_label'    => '取消',
+        'confirm_content' => '你确定删除该日志文件吗？',
+    ],
+    'delete' => [
+        'success_message' => '删除成功，请检查是否有操作权限',
+        'fail_message' => '删除失败'
+    ],
     'table' => [
         'sProcessing' => '处理中...',
         'sLengthMenu' => '显示 _MENU_ 项结果',
@@ -24,33 +55,5 @@ return [
             'sSortAscending'  => ': 以升序排列此列',
             'sSortDescending' => ': 以降序排列此列',
         ],
-    ],
-    'dropdown' => [
-        'document_label' => '使用文档',
-        'login_label'    => '用户登录',
-        'logout_label'   => '退出登录',
-        'register_label' => '用户注册',
-    ],
-    'info' => [
-        'info_title'     => '日志信息',
-        'delete_label'   => '删除',
-        'download_label' => '下载',
-        'file_path'      => '文件路径',
-        'file_size'      => '文件大小',
-        'modified_at'    => '最近修改时间',
-        'log_level'      => '级别',
-        'log_env'        => '环境',
-        'log_datetime'   => '日期',
-        'log_content'    => '内容',
-    ],
-    'confirm' => [
-        'confirm_title'   => '温馨提示',
-        'ok_label'        => '确定',
-        'cancel_label'    => '取消',
-        'confirm_content' => '你确定删除该日志文件吗？',
-    ],
-    'delete' => [
-        'success_message' => '删除成功，请检查是否有操作权限',
-        'fail_message' => '删除失败'
     ]
 ];

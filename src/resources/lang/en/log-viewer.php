@@ -1,6 +1,37 @@
 <?php
 
 return [
+    'dropdown' => [
+        'document_label' => 'Document',
+        'login_label'    => 'Login',
+        'logout_label'   => 'Logout',
+        'register_label' => 'Register',
+    ],
+    'dashboard' => [
+        'dashboard_title' => 'Dashboard',
+    ],
+    'info' => [
+        'info_title'     => 'Log Info',
+        'delete_label'   => 'Delete',
+        'download_label' => 'Download',
+        'file_path'      => 'FILE_PATH',
+        'file_size'      => 'FILE_SIZE',
+        'modified_at'    => 'LAST_MODIFIED_AT',
+        'log_level'      => 'Level',
+        'log_env'        => 'Env',
+        'log_datetime'   => 'Datetime',
+        'log_content'    => 'Content',
+    ],
+    'confirm' => [
+        'confirm_title'   => 'Confirm Notice',
+        'ok_label'        => 'OK',
+        'cancel_label'    => 'CANCEL',
+        'confirm_content' => 'Are you sure you want to delete it?',
+    ],
+    'delete' => [
+        'success_message' => 'Delete successful',
+        'fail_message' => 'Delete failed, please check if you have operation permission'
+    ],
     'table' => [
         'sProcessing' => 'Processing...',
         'sLengthMenu' => 'Show _MENU_ entries',
@@ -25,32 +56,4 @@ return [
             'sSortDescending' => ': activate to sort column descending',
         ],
     ],
-    'dropdown' => [
-        'document_label' => 'Document',
-        'login_label'    => 'Login',
-        'logout_label'   => 'Logout',
-        'register_label' => 'Register',
-    ],
-    'info' => [
-        'info_title'     => 'Log Info',
-        'delete_label'   => 'Delete',
-        'download_label' => 'Download',
-        'file_path'      => 'FILE_PATH',
-        'file_size'      => 'FILE_SIZE',
-        'modified_at'    => 'LAST_MODIFIED_AT',
-        'log_level'      => 'Level',
-        'log_env'        => 'Env',
-        'log_datetime'   => 'Datetime',
-        'log_content'    => 'Content',
-    ],
-    'confirm' => [
-        'confirm_title'   => 'Confirm Notice',
-        'ok_label'        => 'OK',
-        'cancel_label'    => 'CANCEL',
-        'confirm_content' => 'Are you sure you want to delete it?',
-    ],
-    'delete' => [
-        'success_message' => 'Delete successful',
-        'fail_message' => 'Delete failed, please check if you have operation permission'
-    ]
 ];

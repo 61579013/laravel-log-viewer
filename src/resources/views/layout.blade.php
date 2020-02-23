@@ -240,7 +240,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
 
-                    <li><a href="https://github.com/gouguoyin/laravel-log-viewer"><i class="fa fa-fw fa-file-text-o"></i> {{ trans('log-viewer::log-viewer.dropdown.document_label') }}</a></li>
+                    <li><a target="_blank" href="https://github.com/gouguoyin/laravel-log-viewer"><i class="fa fa-fw fa-file-text-o"></i> {{ trans('log-viewer::log-viewer.dropdown.document_label') }}</a></li>
 
                     @guest
                         @if (Route::has('register'))

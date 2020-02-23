@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
-                <h1>仪表盘</h1>
+                <h1>{{ trans('log-viewer::log-viewer.dashboard.dashboard_title') }}</h1>
             </div>
         </div>
         <!-- /.col-lg-12 -->

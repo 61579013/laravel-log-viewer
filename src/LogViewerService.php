@@ -83,7 +83,7 @@ class LogViewerService
         {
             $bytes /= 1024;
         }
-        return round($bytes, 2).$size[$i];
+        return round($bytes, 2) . ' ' . $size[$i];
     }
 
     /**
