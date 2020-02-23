@@ -46,19 +46,19 @@ Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平�
 
 #### 只生成配置文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-config"`
+    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-config"
 
 #### 只生成服务提供者文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-provider"`
+    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-provider"
 
 #### 只生成翻译文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-lang"`
+    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-lang"
 
 #### 只生成视图文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-views"`
+    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-views"
 
 通过修改以上文件即可在不修改扩展包的基础上进行自定义操作
 
@@ -84,12 +84,12 @@ Log Viewer默认路由是 `/logs`， 默认情况下，只能在 `local` 环境�
 > Laravel会自动将 *authenticated* 用户注入到 gate 方法。如果你的应用程序通过其他方法（如IP限制）提供安全，那么用户可能不需要“登录”。因此，你需要将上面的 `function ($user)` 更改为  `function ($user = null)`以屏蔽身份验证。
 
 ## 配置说明
-| 配置项 | 配置说明 | 默认值 |
-| --- | --- | --- | 
-| `web_route` |  配置访问路由 | logs |
-| `web_middleware` |  配置访问中间件 | ['web', 'auth'] |
-| `web_navbar` |  配置后台右上角导航链接 |  |
-| `locale_language` |  配置本地化语言(en:英文、cn:中文) | cn |
-| `page_size_menu` |  配置表格每页显示条数下拉菜单 | 10, 20, 30, 50, 100 |
-| `default_page_size` |  配置表格每页显示条数下拉菜单默认选项 | 30 |
-| `fix_header` |  配置表格头字段是否固定 | true |
+| 配置项 | 配置说明 | 可选值 | 默认值 |
+| --- | --- | --- | --- | 
+| `web_route` |  配置访问路由 |  | logs |
+| `web_middleware` |  配置访问中间件 |  | ['web', 'auth'] |
+| `web_navbar` |  配置后台右上角导航链接 |  |  |
+| `locale_language` |  配置本地化语言 | en:英文、cn:中文 | cn |
+| `page_size_menu` |  配置表格每页显示条数下拉菜单 |  | 10, 20, 30, 50, 100 |
+| `default_page_size` |  配置表格每页显示条数下拉菜单默认选项 |  | 20 |
+| `fix_header` |  配置表格头字段是否固定 | true、false | true |
