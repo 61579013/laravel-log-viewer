@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\Facades\Gate;
+use Gouguoyin\LogViewer\LogViewerServiceProvider as ServiceProvider;
+
+class LogViewerServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+    }
+
+    /**
+     * Register the log-viewer gate.
+     *
+     * This gate determines who can access log-viewer in non-local environments.
+     *
+     * @return void
+     */
+    protected function gate()
+    {
+        Gate::define('view-logs', function ($user) {
+            return in_array($user->email, [
+                //
+            ]);
+        });
+    }
+}
