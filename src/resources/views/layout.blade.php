@@ -142,6 +142,9 @@
         .sidebar .nav-third-level li a {
             padding-left: 52px;
         }
+        .sidebar .search-group {
+            width: 100%;
+        }
         @media (min-width: 768px) {
             .sidebar {
                 z-index: 1;
@@ -269,20 +272,25 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
-                        <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                        <div class="input-group search-group">
+                            <form method="get" action="{{ route('home') }}" role="form">
+                                <div class="form-group input-group">
+                                    <input name="keywords" type="text" class="form-control" value="{{ $keywords }}" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+
+                            </form>
                         </div>
                         <!-- /input-group -->
                     </li>
 
-                    @foreach ($logViewerService->getAllLogs() as $log)
+                    @foreach ($logViewerService->getAllLogs($keywords) as $log)
                         <li>
-                            <a class="{{ $logViewerService->getLogName() == $log ? 'active': ''}}" href="?file={{ $log }}"><i class="fa fa-fw fa-files-o"></i> {{ $log }}</a>
+                            <a class="{{ $logViewerService->getLogName() == $log ? 'active': ''}}" href="{{ route('home')}}?file={{ $log }}"><i class="fa fa-fw fa-files-o"></i> {{ $log }}</a>
                         </li>
                     @endforeach
 

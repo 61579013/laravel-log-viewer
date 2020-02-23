@@ -2,6 +2,7 @@
 
 namespace Gouguoyin\LogViewer;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\File;
@@ -32,13 +33,22 @@ class LogViewerService
 
     /**
      * 获取所有日志
+     * @param string $keywords 关键字
      * @return array
      */
-    public function getAllLogs()
+    public function getAllLogs($keywords = null)
     {
         $logs = [];
         foreach (File::allFiles(storage_path('logs')) as $log) {
-            $logs[] = $log->getRelativePathname();
+            $pathName = $log->getRelativePathname();
+
+            if(Str::contains($pathName, $keywords)){
+                $logs[] = $log->getRelativePathname();
+            }
+
+            if(!$keywords){
+                $logs[] = $log->getRelativePathname();
+            }
         }
         return $logs;
     }
@@ -67,7 +77,7 @@ class LogViewerService
      */
     public function getLogPath()
     {
-        return storage_path('logs/' . $this->logName);
+        return storage_path('logs' . DIRECTORY_SEPARATOR . $this->logName);
     }
 
     /**

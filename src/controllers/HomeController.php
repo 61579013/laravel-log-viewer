@@ -2,29 +2,33 @@
 
 namespace Gouguoyin\LogViewer\controllers;
 
-use Gouguoyin\LogViewer\LogViewerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\View;
+use Gouguoyin\LogViewer\LogViewerService;
 
 class HomeController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        View::share('keywords', $request->input('keywords'));
+    }
+
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @param Request $request
+     * @param LogViewerService $logViewerService
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request, LogViewerService $logViewerService)
+    public function home(Request $request, LogViewerService $logViewerService)
     {
         if ($request->has('file')) {
             $logViewerService->setLogPath($request->input('file'));
-            return view('log-viewer::detail', [
-                'logViewerService' => $logViewerService,
-            ]);
+            $viewName = 'log-viewer::detail';
         }else{
-            return view('log-viewer::home', [
-                'logViewerService' => $logViewerService,
-            ]);
+            $viewName = 'log-viewer::home';
         }
+
+        return view($viewName, ['logViewerService' => $logViewerService,]);
     }
 
     /**
