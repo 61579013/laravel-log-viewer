@@ -5,7 +5,7 @@
 Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平板和移动端的日志查看后台，可自由配置访问路由、权限策略、中间件，支持多语言和导航配置
 
 <p align="center">
-<img src="https://cdn.learnku.com/uploads/images/201909/04/4760/wfych538yj.png!large" width="600" height="481">
+![](../thumb/delete.png)
 </p>
 
 <a name="installation"></a>
