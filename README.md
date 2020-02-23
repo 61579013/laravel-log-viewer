@@ -2,7 +2,7 @@
 
 ## 简介
 
-Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平板和移动端的日志查看后台，可自由配置访问路由、权限策略、中间件，支持多语言和导航配置
+Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平板和移动端的日志查看后台，可自由配置访问路由、权限策略、中间件、导航链接，支持多语言和日志搜索、下载、删除
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/gouguoyin/laravel-log-viewer/master/thumb/home-cn.png" width="100%">
