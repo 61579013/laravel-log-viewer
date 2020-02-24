@@ -7,19 +7,23 @@ use Illuminate\Support\ServiceProvider;
 
 class LogViewerServiceProvider extends ServiceProvider
 {
-    const CONFIG_PATH = __DIR__ . '/config';
-    const ROUTE_PATH  = __DIR__ . '/routes';
-    const VIEW_PATH   = __DIR__ . '/resources/views';
-    const LANG_PATH   = __DIR__ . '/resources/lang';
+    const CONFIG_PATH = __DIR__ . '/../config';
+    const ROUTE_PATH  = __DIR__ . '/../routes';
+    const STUB_PATH   = __DIR__ . '/../stubs';
+    const VIEW_PATH   = __DIR__ . '/../resources/views';
+    const LANG_PATH   = __DIR__ . '/../resources/lang';
+
+    protected $packageName;
 
     /**
      * Bootstrap the application events.
-     *
-     * @return void
+     * @param LogViewerService $logViewerService
      */
-    public function boot()
+    public function boot(LogViewerService $logViewerService)
     {
-        $this->authorization();
+        $this->packageName = $logViewerService->getPackageName();
+
+        $this->gate();
 
         /**
          * 加载路由文件
@@ -29,12 +33,12 @@ class LogViewerServiceProvider extends ServiceProvider
         /**
          * 指定视图路径
          */
-        $this->loadViewsFrom(self::VIEW_PATH, 'log-viewer');
+        $this->loadViewsFrom(self::VIEW_PATH, $this->packageName);
 
         /**
          * 指定语言路径
          */
-        $this->loadTranslationsFrom(self::LANG_PATH, 'log-viewer');
+        $this->loadTranslationsFrom(self::LANG_PATH, $this->packageName);
 
         /**
          * 发布配置文件
@@ -47,7 +51,7 @@ class LogViewerServiceProvider extends ServiceProvider
          * 发布视图目录
          */
         $this->publishes([
-            self::VIEW_PATH => resource_path('views/vendor/log-viewer'),
+            self::VIEW_PATH => resource_path('views/vendor/' . $this->packageName),
         ], 'log-viewer-views');
 
         /**
@@ -61,7 +65,7 @@ class LogViewerServiceProvider extends ServiceProvider
          * 发布服务提供者
          */
         $this->publishes([
-            __DIR__.'/stubs/LogViewerServiceProvider.stub' => app_path('Providers/LogViewerServiceProvider.php'),
+            self::STUB_PATH . '/LogViewerServiceProvider.stub' => app_path('Providers/LogViewerServiceProvider.php'),
         ], 'log-viewer-provider');
     }
 
@@ -87,15 +91,12 @@ class LogViewerServiceProvider extends ServiceProvider
     {
         if(!app()->environment('local')){
             $this->gate();
-            if (Gate::denies('view-logs')) {
-                abort('403');
-            }
         }
     }
 
     protected function gate()
     {
-        Gate::define('view-logs', function ($user) {
+        Gate::define($this->packageName, function ($user) {
             return in_array($user->email, [
 
             ]);

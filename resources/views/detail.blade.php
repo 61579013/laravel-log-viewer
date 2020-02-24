@@ -8,8 +8,8 @@
             <div class="page-header">
                 <h1>{{ trans('log-viewer::log-viewer.info.info_title') }}</h1>
                 <div class="header-btns">
-                    <a href="{{ route('download')}}?file={{ $logViewerService->getLogName() }}" class="btn hidden-xs btn-sm btn-success" style="margin-right: 3px;"><i class="fa fa-fw fa-download"></i> {{ trans('log-viewer::log-viewer.info.download_label') }}</a>
-                    <a href="javascript:;" data-url="{{route('delete')}}?file={{ $logViewerService->getLogName() }}" class="btn hidden-xs btn-sm btn-danger delete-btn"><i class="fa fa-fw fa-trash-o"></i> {{ trans('log-viewer::log-viewer.info.delete_label') }}</a>
+                    <a href="{{ route('download')}}?file={{ $service->getLogName() }}" class="btn hidden-xs btn-sm btn-success" style="margin-right: 3px;"><i class="fa fa-fw fa-download"></i> {{ trans('log-viewer::log-viewer.info.download_label') }}</a>
+                    <a href="javascript:;" data-url="{{route('delete')}}?file={{ $service->getLogName() }}" class="btn hidden-xs btn-sm btn-danger delete-btn"><i class="fa fa-fw fa-trash-o"></i> {{ trans('log-viewer::log-viewer.info.delete_label') }}</a>
                 </div>
             </div>
         </div>
@@ -23,11 +23,11 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <ul class="list-inline">
-                        <li><label>{{ trans('log-viewer::log-viewer.info.file_path') }}：</label>{{ $logViewerService->getLogName() }}</li>
+                        <li><label>{{ trans('log-viewer::log-viewer.info.file_path') }}：</label>{{ $service->getLogName() }}</li>
                     </ul>
                     <ul class="list-inline">
-                        <li><label>{{ trans('log-viewer::log-viewer.info.file_size') }}：</label>{{ $logViewerService->getLogSize() }}</li>
-                        <li><label>{{ trans('log-viewer::log-viewer.info.modified_at') }}：</label>{{ $logViewerService->getLogModified() }}</li>
+                        <li><label>{{ trans('log-viewer::log-viewer.info.file_size') }}：</label>{{ $service->getLogSize() }}</li>
+                        <li><label>{{ trans('log-viewer::log-viewer.info.modified_at') }}：</label>{{ $service->getLogModified() }}</li>
                     </ul>
 
                 </div>
@@ -53,9 +53,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($logViewerService->getLogContents() as $content)
+                        @foreach ($service->getLogContents() as $content)
                             <tr class="odd gradeX">
-                                <td class="{{ $logViewerService->getLevelColor($content['level']) }}"><i class="fa fa-fw {{ $logViewerService->getLevelIcon($content['level']) }}"></i> {{ $content['level'] }}</td>
+                                <td class="{{ $service->getLevelColor($content['level']) }}"><i class="fa fa-fw {{ $service->getLevelIcon($content['level']) }}"></i> {{ $content['level'] }}</td>
                                 <td>{{ $content['env'] }}</td>
                                 <td>{{ $content['datetime'] }}</td>
                                 <td class="center">{{ $content['message'] }}</td>
@@ -74,7 +74,7 @@
     </div>
 @endsection
 
-@section('log-viewer::script')
+@section("log-viewer::script")
     @parent
     <script>
         $(document).ready(function() {
@@ -104,9 +104,7 @@
                 confirm("{{ trans('log-viewer::log-viewer.confirm.confirm_content') }}", function () {
                     $.get(thisObj.data('url'), function (result) {
                         if(result.status == 'success'){
-                            alert(result.message, 'success', function () {
-                                window.location.href = result.redirect;
-                            });
+                            window.location.href = result.redirect;
                         }else{
                             alert(result.message, 'error', function () {
                                 window.location.reload();

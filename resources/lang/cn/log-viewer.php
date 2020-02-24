@@ -29,8 +29,8 @@ return [
         'confirm_content' => '你确定删除该日志文件吗？',
     ],
     'delete' => [
-        'success_message' => '删除成功，请检查是否有操作权限',
-        'fail_message' => '删除失败'
+        'success_message' => '删除成功',
+        'fail_message' => '删除失败，请检查是否有操作权限'
     ],
     'table' => [
         'sProcessing' => '处理中...',

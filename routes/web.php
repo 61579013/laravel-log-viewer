@@ -1,7 +1,7 @@
 <?php
 
 Route::group([
-    'namespace'  => 'Gouguoyin\LogViewer\controllers',
+    'namespace'  => 'Gouguoyin\LogViewer\Controllers',
     'prefix'     => config('log-viewer.web_route'),
     'middleware' => config('log-viewer.web_middleware', 'web'),
 ], function () {

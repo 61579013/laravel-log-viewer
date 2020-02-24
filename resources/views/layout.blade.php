@@ -288,9 +288,9 @@
                         <!-- /input-group -->
                     </li>
 
-                    @foreach ($logViewerService->getAllLogs($keywords) as $log)
+                    @foreach ($service->getAllLogs($keywords) as $log)
                         <li>
-                            <a class="{{ $logViewerService->getLogName() == $log ? 'active': ''}}" href="{{ route('home')}}?file={{ $log }}"><i class="fa fa-fw fa-files-o"></i> {{ $log }}</a>
+                            <a class="{{ $service->getLogName() == $log ? 'active': ''}}" href="{{ route('home')}}?file={{ $log }}"><i class="fa fa-fw fa-files-o"></i> {{ $log }}</a>
                         </li>
                     @endforeach
 

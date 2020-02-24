@@ -2,6 +2,7 @@
 
 namespace Gouguoyin\LogViewer;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
@@ -11,6 +12,11 @@ class LogViewerService
 {
     protected $config;
     protected $logName;
+
+    /**
+     * 扩展包名
+     */
+    const PACKAGE_NAME = 'log-viewer';
 
     /**
      * 日志等级
@@ -26,9 +32,18 @@ class LogViewerService
 
     public function __construct()
     {
-        $this->config = config('log-viewer');
+        $this->config = config(self::PACKAGE_NAME);
 
         App::setLocale($this->config['locale_language']);
+    }
+
+    /**
+     * 获取包名
+     * @return string
+     */
+    public function getPackageName()
+    {
+        return self::PACKAGE_NAME;
     }
 
     /**
@@ -169,6 +184,15 @@ class LogViewerService
         ];
 
         return $icons[strtolower($level)];
+    }
+
+    /**
+     * 授权检测
+     * @return bool
+     */
+    public function authorization()
+    {
+        return app()->environment('local') || Gate::allows($this->getPackageName());
     }
 
 }

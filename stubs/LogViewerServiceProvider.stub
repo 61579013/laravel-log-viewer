@@ -26,10 +26,16 @@ class LogViewerServiceProvider extends ServiceProvider
      */
     protected function gate()
     {
-        Gate::define('view-logs', function ($user) {
+        Gate::define($this->packageName, function ($user) {
             return in_array($user->email, [
-                //
+                // '245629560@qq.com', 'gouugoyin@qq.com'
             ]);
         });
+
+        /*
+        Gate::define($this->packageName, function ($user = null) {
+            return true;
+        });
+        */
     }
 }
