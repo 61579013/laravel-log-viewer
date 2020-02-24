@@ -24,7 +24,6 @@ class LogViewerServiceProvider extends ServiceProvider
         $this->packageName = $logViewerService->getPackageName();
 
         $this->gate();
-        $this->register();
 
         /**
          * 加载路由文件
