@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
 
@@ -9,6 +9,9 @@
     <meta name="description" content="A beautiful laravel log viewer">
     <meta name="author" content="gouguoyin">
     <meta name="qq" content="245629560@qq.com">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('log-viewer::title')</title>
 

@@ -16,7 +16,7 @@ class HomeController extends Controller
         if ($request->has('file')) {
             $this->service->setLogPath($request->input('file'));
             $viewName = $this->packageName . '::detail';
-        }else{
+        } else {
             $viewName = $this->packageName . '::home';
         }
 
@@ -45,7 +45,7 @@ class HomeController extends Controller
     public function delete(Request $request)
     {
         $this->service->setLogPath($request->input('file'));
-        if(File::delete($this->service->getLogPath())){
+        if (File::delete($this->service->getLogPath())) {
             return ['status' => 'success', 'message' => trans($this->packageName . '::log-viewer.delete.success_message'), 'redirect' => route('home')];
         }
         return ['status' => 'fail', 'message' => trans($this->packageName . '::log-viewer.delete.success_fail')];

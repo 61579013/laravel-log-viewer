@@ -57,11 +57,11 @@ class LogViewerService
         foreach (File::allFiles(storage_path('logs')) as $log) {
             $pathName = $log->getRelativePathname();
 
-            if(Str::contains($pathName, $keywords)){
+            if (Str::contains($pathName, $keywords)) {
                 $logs[] = $log->getRelativePathname();
             }
 
-            if(!$keywords){
+            if (!$keywords) {
                 $logs[] = $log->getRelativePathname();
             }
         }
@@ -104,8 +104,7 @@ class LogViewerService
         $bytes = File::size($this->getLogPath());
 
         $size = ['B', 'K', 'M', 'G', 'T'];
-        for ($i = 0; $bytes >= 1024 && $i < 4; $i++)
-        {
+        for ($i = 0; $bytes >= 1024 && $i < 4; $i++) {
             $bytes /= 1024;
         }
         return round($bytes, 2) . ' ' . $size[$i];

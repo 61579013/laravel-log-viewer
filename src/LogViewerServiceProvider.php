@@ -24,6 +24,7 @@ class LogViewerServiceProvider extends ServiceProvider
         $this->packageName = $logViewerService->getPackageName();
 
         $this->gate();
+        $this->register();
 
         /**
          * 加载路由文件
@@ -84,16 +85,6 @@ class LogViewerServiceProvider extends ServiceProvider
         );
     }
 
-    /**
-     * 授权检测
-     */
-    protected function authorization()
-    {
-        if(!app()->environment('local')){
-            $this->gate();
-        }
-    }
-
     protected function gate()
     {
         Gate::define($this->packageName, function ($user) {
@@ -101,7 +92,5 @@ class LogViewerServiceProvider extends ServiceProvider
 
             ]);
         });
-
     }
-
 }
