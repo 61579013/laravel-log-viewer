@@ -17,7 +17,7 @@ return [
         'log_path'        => 'File_Path',
         'log_size'        => 'File_Size',
         'log_entries'     => 'File_Entries',
-        'modified_at'     => 'Last_modified_at',
+        'modified_at'     => 'Last_Modified_At',
         'log_level'       => 'Level',
         'log_env'         => 'Env',
         'log_datetime'    => 'Datetime',
