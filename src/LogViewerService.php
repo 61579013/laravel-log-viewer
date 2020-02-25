@@ -65,7 +65,7 @@ class LogViewerService
                 $logs[] = $log->getRelativePathname();
             }
         }
-        return $logs;
+        return array_reverse($logs);
     }
 
     /**
