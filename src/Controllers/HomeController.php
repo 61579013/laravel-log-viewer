@@ -15,12 +15,12 @@ class HomeController extends Controller
     {
         if ($request->has('file')) {
             $this->service->setLogPath($request->input('file'));
-            $viewName = $this->packageName . '::detail';
+            $viewName = 'detail';
         } else {
-            $viewName = $this->packageName . '::home';
+            $viewName = 'home';
         }
 
-        return view($viewName, [
+        return view($this->packageName .'::'. $viewName, [
             'service'  => $this->service,
             'keywords' => $request->input('keywords'),
         ]);

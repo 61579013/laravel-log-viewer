@@ -126,14 +126,14 @@ class LogViewerService
     public function getLogContents()
     {
         $content = File::sharedGet($this->getLogPath());
-        $pattern = "/^\[(?<date>.*)\]\s(?<env>\w+)\.(?<level>\w+):(?<message>.*)/m";
+        $pattern = "/^\[(?<datetime>.*)\]\s(?<env>\w+)\.(?<level>\w+):(?<message>.*)/m";
 
         preg_match_all($pattern, $content, $matches, PREG_SET_ORDER, 0);
 
         $logs = [];
         foreach ($matches as $match) {
             $logs[] = [
-                'datetime' => $match['date'],
+                'datetime' => $match['datetime'],
                 'env'      => $match['env'],
                 'level'    => strtolower($match['level']),
                 'message'  => trim($match['message'])

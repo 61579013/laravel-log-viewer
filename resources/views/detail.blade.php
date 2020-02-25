@@ -23,10 +23,11 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <ul class="list-inline">
-                        <li><label>{{ trans('log-viewer::log-viewer.info.file_path') }}：</label>{{ $service->getLogName() }}</li>
+                        <li><label>{{ trans('log-viewer::log-viewer.info.log_path') }}：</label>{{ $service->getLogName() }}</li>
                     </ul>
                     <ul class="list-inline">
-                        <li><label>{{ trans('log-viewer::log-viewer.info.file_size') }}：</label>{{ $service->getLogSize() }}</li>
+                        <li><label>{{ trans('log-viewer::log-viewer.info.log_entries') }}：</label>{{ count($service->getLogContents()) }}</li>
+                        <li><label>{{ trans('log-viewer::log-viewer.info.log_size') }}：</label>{{ $service->getLogSize() }}</li>
                         <li><label>{{ trans('log-viewer::log-viewer.info.modified_at') }}：</label>{{ $service->getLogModified() }}</li>
                     </ul>
 
