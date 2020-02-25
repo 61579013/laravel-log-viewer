@@ -30,7 +30,7 @@ Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平�
 
 如果想进行一些自定义操作
 
-运行`php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider"`会一次性生成
+运行`php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider"`会一次性生成
 
 `app/Providers/LogViewerServiceProvider.php` 服务提供者文件
 
@@ -46,19 +46,19 @@ Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平�
 
 #### 只生成配置文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-config"
+    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-config"
 
 #### 只生成服务提供者文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-provider"
+    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-provider"
 
 #### 只生成翻译文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-lang"
+    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-lang"
 
 #### 只生成视图文件
 
-    php artisan vendor:publish provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-views"
+    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-views"
 
 通过修改以上文件即可在不修改扩展包的基础上进行自定义操作
 
