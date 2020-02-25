@@ -293,7 +293,7 @@
 
                     @foreach ($service->getAllLogs($keywords) as $log)
                         <li>
-                            <a class="{{ $service->getLogName() == $log ? 'active': ''}}" href="{{ route('home')}}?file={{ $log }}"><i class="fa fa-fw fa-files-o"></i> {{ $log }}</a>
+                            <a class="{{ $service->getLogName() == $log ? 'active': ''}}" href="{{ route('log-viewer-home')}}?file={{ $log }}"><i class="fa fa-fw fa-files-o"></i> {{ $log }}</a>
                         </li>
                     @endforeach
 

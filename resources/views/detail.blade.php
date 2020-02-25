@@ -8,8 +8,8 @@
             <div class="page-header">
                 <h1>{{ trans('log-viewer::log-viewer.info.info_title') }}</h1>
                 <div class="header-btns">
-                    <a href="{{ route('download')}}?file={{ $service->getLogName() }}" class="btn hidden-xs btn-sm btn-success" style="margin-right: 3px;"><i class="fa fa-fw fa-download"></i> {{ trans('log-viewer::log-viewer.info.download_label') }}</a>
-                    <a href="javascript:;" data-url="{{route('delete')}}?file={{ $service->getLogName() }}" class="btn hidden-xs btn-sm btn-danger delete-btn"><i class="fa fa-fw fa-trash-o"></i> {{ trans('log-viewer::log-viewer.info.delete_label') }}</a>
+                    <a href="{{ route('log-viewer-download')}}?file={{ $service->getLogName() }}" class="btn hidden-xs btn-sm btn-success" style="margin-right: 3px;"><i class="fa fa-fw fa-download"></i> {{ trans('log-viewer::log-viewer.info.download_label') }}</a>
+                    <a href="javascript:;" data-url="{{route('log-viewer-delete')}}?file={{ $service->getLogName() }}" class="btn hidden-xs btn-sm btn-danger delete-btn"><i class="fa fa-fw fa-trash-o"></i> {{ trans('log-viewer::log-viewer.info.delete_label') }}</a>
                 </div>
             </div>
         </div>
