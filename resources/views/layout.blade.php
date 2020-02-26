@@ -276,7 +276,7 @@
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group search-group">
-                            <form method="get" action="{{ route('home') }}" role="form">
+                            <form method="get" action="{{ route('log-viewer-home') }}" role="form">
                                 <div class="form-group input-group">
                                     <input name="keywords" type="text" class="form-control" value="{{ $keywords }}" placeholder="Search...">
                                     <span class="input-group-btn">
