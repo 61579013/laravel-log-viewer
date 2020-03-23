@@ -63,6 +63,8 @@ Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平�
 通过修改以上文件即可在不修改扩展包的基础上进行自定义操作
 
 ## 权限验证
+将 `config/app.php` 的 `providers` 数组 中的 `Gouguoyin\LogViewer\LogViewerServiceProvider::class` 改成 `Gouguoyin\LogViewer\LogViewerServiceProvider::class`
+
 Log Viewer默认路由是 `/logs`， 默认情况下，只能在 `local` 环境下访问。在  `app/Providers/LogViewerServiceProvider.php` 文件中，有一个 `gate` 方法。这里授权控制 非本地 环境中的访问。 你可以根据需要随意修改此门面，以限制对 Log Viewer 的访问：
 
     /**
