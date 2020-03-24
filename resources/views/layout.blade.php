@@ -152,6 +152,8 @@
             .sidebar {
                 z-index: 1;
                 position: absolute;
+                overflow: auto;
+                max-height: 600px;
                 width: 300px;
                 margin-top: 51px;
             }
