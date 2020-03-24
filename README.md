@@ -2,34 +2,30 @@
 
 ## 简介
 
-Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平板和移动端的日志查看后台，可自由配置访问路由、权限策略、中间件、导航链接，支持多语言和日志搜索、下载、删除
+Laravel Log Viewer 提供了一个基于bootstrap搭建，适配PC、平板和移动端的日志查看后台，可自由配置访问路由、权限策略、中间件、导航链接，支持多语言和日志搜索、下载、删除
 
 <p align="center">
-<img src="https://files.gitee.com/group1/M00/0C/82/wKgCNF50lumABeYjAAEBwynBrb0724.png?token=ea3d5b18f51c48e91bf11afa914da806&ts=1584699660&attname=home-cn.png&disposition=inline" width="100%">
-<img src="https://files.gitee.com/group1/M00/0C/82/wKgCNF50lxmAJX3HAAEAZYVMzvw377.png?token=e8e720a0cf6f5a344bea397fae16664d&ts=1584699474&attname=home-en.png&disposition=inline" width="100%">
-<img src="https://files.gitee.com/group1/M00/0C/82/wKgCNF50l1uAMq_bAAFSrhfQOOg636.png?token=b95a6173f60c519897c4a713adb82892&ts=1584699474&attname=delete.png&disposition=inline" width="100%">
+<img src="https://cdn.learnku.com/uploads/images/202003/23/56022/E3O59xEU5b.png!large" width="100%">
+<img src="https://cdn.learnku.com/uploads/images/202003/23/56022/7wYJg6tz0p.png!large" width="100%">
+<img src="https://cdn.learnku.com/uploads/images/202003/23/56022/FMPZOzUU0L.png!large" width="100%">
 </p>
 
 <a name="installation"></a>
 ## 安装配置
 
 安装 larave-log-viewer
-
-    # 如果只想在开发环境安装请加上 --dev
-    composer require gouguoyin/laravel-log-viewer
-
+```php
+# 如果只想在开发环境安装请加上 --dev 
+composer require gouguoyin/laravel-log-viewer
+```
 添加到服务提供者
 
 在 `config/app.php` 的 `providers` 数组中加入
 
-    Gouguoyin\LogViewer\LogViewerServiceProvider::class,
-
+ Gouguoyin\LogViewer\LogViewerServiceProvider::class,
 现在你已经可以通过访问`你的域名/logs`进入log-viewer后台，
 
 ## 自定义Log Viewer
-
-如果想进行一些自定义操作
-
 运行`php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider"`会一次性生成
 
 `app/Providers/LogViewerServiceProvider.php` 服务提供者文件
@@ -45,42 +41,45 @@ Laravel Log Viewer 提供了一个基于bootstrap搭建，完美适配PC、平�
 如果只想生成指定分类文件
 
 #### 只生成配置文件
-
-    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-config"
-
+```php
+php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-config"
+```
 #### 只生成服务提供者文件
-
-    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-provider"
-
+```php
+php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-provider"
+```
 #### 只生成翻译文件
-
-    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-lang"
-
+```php
+php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-lang"
+```
 #### 只生成视图文件
-
-    php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-views"
-
+```php
+php artisan vendor:publish --provider="Gouguoyin\LogViewer\LogViewerServiceProvider" --tag="log-viewer-views"
+```
 通过修改以上文件即可在不修改扩展包的基础上进行自定义操作
 
 ## 权限验证
 Log Viewer默认路由是 `/logs`， 默认情况下，只能在 `local` 环境下访问。在  `app/Providers/LogViewerServiceProvider.php` 文件中，有一个 `gate` 方法。这里授权控制 非本地 环境中的访问。 你可以根据需要随意修改此门面，以限制对 Log Viewer 的访问：
 
-    /**
-     * Register the log-viewer gate.
-     *
-     * This gate determines who can access log-viewer in non-local environments.
-     *
-     * @return void
-     */
-    protected function gate()
-    {
-        Gate::define('view-logs', function ($user) {
-            return in_array($user->email, [
-                //
-            ]);
-        });
-    }
+```php
+/**
+ * Register the log-viewer gate.
+ *
+ * This gate determines who can access log-viewer in non-local environments.
+ *
+ * @return void
+ */
+protected function gate()
+{
+    Gate::define('view-logs', function ($user) {
+        return in_array($user->email, [
+            //
+        ]);
+    });
+}
+```
 
+然后将 `config/app.php` 的 `providers` 数组 中的 `Gouguoyin\LogViewer\LogViewerServiceProvider::class` 改成 `Gouguoyin\LogViewer\LogViewerServiceProvider::class`
 > Laravel会自动将 *authenticated* 用户注入到 gate 方法。如果你的应用程序通过其他方法（如IP限制）提供安全，那么用户可能不需要“登录”。因此，你需要将上面的 `function ($user)` 更改为  `function ($user = null)`以屏蔽身份验证。
 
 ## 配置说明
