@@ -4,15 +4,15 @@
 
 Laravel Log Viewer 为laravel提供了一个基于bootstrap搭建，适配PC、平板和移动端的日志查看后台，可自由配置访问路由、权限策略、中间件、导航链接，支持多语言和日志搜索、下载、删除
 
+github:[github.com/gouguoyin/laravel-log-viewer](https://github.com/gouguoyin/laravel-log-viewer "github.com/gouguoyin/laravel-log-viewer")
+
+gitee:[gitee.com/gouguoyin/laravel-log-viewer](https://gitee.com/gouguoyin/laravel-log-viewer "gitee.com/gouguoyin/laravel-log-viewer")
+
 <p align="center">
 <img src="https://cdn.learnku.com/uploads/images/202003/23/56022/E3O59xEU5b.png!large" width="100%">
 <img src="https://cdn.learnku.com/uploads/images/202003/23/56022/7wYJg6tz0p.png!large" width="100%">
 <img src="https://cdn.learnku.com/uploads/images/202003/23/56022/FMPZOzUU0L.png!large" width="100%">
 </p>
-
-github:[github.com/gouguoyin/laravel-log-viewer](https://github.com/gouguoyin/laravel-log-viewer "github.com/gouguoyin/laravel-log-viewer")
-
-gitee:[gitee.com/gouguoyin/laravel-log-viewer](https://gitee.com/gouguoyin/laravel-log-viewer "gitee.com/gouguoyin/laravel-log-viewer")
 
 ## 安装配置
 
